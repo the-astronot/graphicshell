@@ -33,7 +33,7 @@ class GameEngine:
 
 	def check_inhabited(self,pos):
 		inhabitants = []
-		for obj in self.render_pipeline():
+		for obj in self.render_pipeline:
 			if obj.check_inhabited(pos):
 				inhabitants.append(obj)
 		return inhabitants

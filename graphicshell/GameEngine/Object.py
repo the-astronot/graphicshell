@@ -18,13 +18,16 @@ class Object:
 	def set_loc(self,pos):
 		self.pos = pos
 
+	def get_loc(self):
+		return self.pos
+
 	def get_char(self,pos):
 		x = pos[0] - self.pos[0]
 		y = pos[1] - self.pos[1]
 		pos = (x,y)
 		if 0<=pos[0]<len(self.char_rep) and 0<=pos[1]<len(self.char_rep[0]):
 			return self.char_rep[pos[0]][pos[1]]
-		return "O"
+		return ""
 
 	def get_clr(self,pos):
 		x = pos[0] - self.pos[0]
@@ -35,7 +38,7 @@ class Object:
 		return reset
 
 	def check_inhabited(self, pos):
-		return self.get_clr((pos[0]-self.pos[0],pos[1]-self.pos[1])) != ""
+		return self.get_char((pos[0],pos[1])) != ""
 
 
 def get_color(string):

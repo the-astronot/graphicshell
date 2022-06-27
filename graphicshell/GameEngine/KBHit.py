@@ -63,6 +63,13 @@ class KBHit:
             termios.tcsetattr(self.fd, termios.TCSAFLUSH, self.old_term)
 
 
+    def set_input_term(self):
+        if os.name == 'nt':
+            pass
+        else:
+            termios.tcsetattr(self.fd, termios.TCSAFLUSH, self.new_term)
+
+
     def getch(self):
         ''' Returns a keyboard character after kbhit() has been called.
             Should not be called in the same program as getarrow().
